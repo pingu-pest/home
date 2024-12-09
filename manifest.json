@@ -1,7 +1,7 @@
 {
   "name": "ペストのHP",
   "short_name": "ペストのHP",
-  "start_url": "/index",
+  "start_url": "/index.html/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
