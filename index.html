@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- ファビコン -->
+  <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+  <!-- Android用アイコン -->
+  <link rel="icon" sizes="192x192" href="icon/android-chrome-192x192.png">
+  <!-- Windows用アイコン -->
+  <meta name="msapplication-TileImage" content="icon/mstile-144x144.png">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <!-- html -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ペストのHP</title>
+  <!-- Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <!-- webサイトのapp化 -->
+  <link rel="manifest" href="manifest.json">
+  <!-- サービスワーカー登録用スクリプト -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker Registered'))
+      .catch(err => console.error('Service Worker Registration Failed:', err));
+    }
+  </script>
+  <script>
+    // ホーム
+    function changeBody1() {
+      document.body.innerHTML = `
+      <!-- バーナー -->
+      <section class="hero is-info">
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+                  <style>
+                    .super-large {
+                      font-size: 45px; /* サイズの指定 */
+                      font-weight: bold; /* 太字 */
+                    }
+                  </style>
+                  <a  href="#" class="super-large has-text-white">PEST</a>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <p class="title">ようこそ！ペストの世界へ</p>
+            <p class="subtitle">You are pest</p>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li class="is-active">
+                  <a onclick="changeBody1()">ホーム</a>
+                </li>
+                <li>
+                  <a onclick="changeBody2()">ペスト教</a>
+                </li>
+                <li>
+                  <a onclick="changeBody3()">ファイル</a>
+                </li>
+                <li>
+                  <a onclick="changeBody4()">サイト</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">下のボタンをクリックして実装してほしい機能やサイトなどをどんどん入れてねー</h4>
+          <a href="https://forms.gle/FSjB9cExbmVUgUt58" class="button is-link">移動する</a>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">12月の献立表と時刻表を載せました！</h4>
+          <h4 class="subtitle is-4">右上のボタンから見れるメニュー表などはその月のものであり、月が変わると自動的に変更されますのでご安心下さい。</h4>
+          <a class="button is-danger" onclick="changeBody3()">移動する</a>
+        </div>
+      </section>
+      `;
+    }
+
+    // ペスト教
+    function changeBody2() {
+      document.body.innerHTML = `
+      <!-- バーナー -->
+      <section class="hero is-info">
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+                  <style>
+                    .super-large {
+                      font-size: 45px; /* サイズの指定 */
+                      font-weight: bold; /* 太字 */
+                    }
+                  </style>
+                  <a  href="#" class="super-large has-text-white">PEST</a>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <p class="title">ペスト教について</p>
+            <p class="subtitle">We are pests</p>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li>
+                  <a onclick="changeBody1()">ホーム</a>
+                </li>
+                <li class="is-active">
+                  <a onclick="changeBody2()">ペスト教</a>
+                </li>
+                <li>
+                  <a onclick="changeBody3()">ファイル</a>
+                </li>
+                <li>
+                  <a onclick="changeBody4()">サイト</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">2012年、3月26日に結成された最近の宗教。</h4>
+          <h4 class="subtitle is-4">この宗教の創始者は「賀家」。</h4>
+          <h4 class="subtitle is-4">(ousuke steve gake)Pest教には重要な日がいる。</h4>
+          <h4 class="subtitle is-4">Pest教が誕生(生誕)した日。</h4>
+          <h4 class="subtitle is-4">この日は全世界のPestが集まる日。</h4>
+          <h4 class="subtitle is-4">全てのPestの名前、顔、特徴を覚えている(Pestは全てで528億匹)。</h4>
+        </div>
+      </section>
+      `;
+    }
+
+    // ファイル
+    function changeBody3() {
+      document.body.innerHTML = `
+      <!-- バーナー -->
+      <section class="hero is-info">
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+                  <style>
+                    .super-large {
+                      font-size: 45px; /* サイズの指定 */
+                      font-weight: bold; /* 太字 */
+                    }
+                  </style>
+                  <a  href="#" class="super-large has-text-white">PEST</a>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <p class="title">ドキュメント</p>
+            <p class="subtitle">They are pests</p>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li>
+                  <a onclick="changeBody1()">ホーム</a>
+                </li>
+                <li>
+                  <a onclick="changeBody2()">ペスト教</a>
+                </li>
+                <li class="is-active">
+                  <a onclick="changeBody3()">ファイル</a>
+                </li>
+                <li>
+                  <a onclick="changeBody4()">サイト</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h5 class="subtitle is-5">11/22(金)</h5>
+          <h4 class="subtitle is-4">12月の献立表でーす。</h4>
+          <a href="https://pingu-pest.github.io/home-file/12月の献立表.pdf" class="button is-warning">ファイルを見る</a>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h5 class="subtitle is-5">11/22(金)</h5>
+          <h4 class="subtitle is-4">12月の時刻表でーす。</h4>
+          <a href="https://pingu-pest.github.io/home-file/12月の時刻表.pdf" class="button is-warning">ファイルを見る</a>
+        </div>
+      </section>
+      `;
+    }
+
+    // サイト
+    function changeBody4() {
+      document.body.innerHTML = `
+      <!-- バーナー -->
+      <section class="hero is-info">
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+                  <style>
+                    .super-large {
+                      font-size: 45px; /* サイズの指定 */
+                      font-weight: bold; /* 太字 */
+                    }
+                  </style>
+                  <a  href="#" class="super-large has-text-white">PEST</a>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <p class="title">虫のためのサイト</p>
+            <p class="subtitle">Pests are so crazy</p>
+          </div>
+        </div>
+        <div class="hero-foot">
+          <nav class="tabs is-boxed is-fullwidth">
+            <div class="container">
+              <ul>
+                <li>
+                  <a onclick="changeBody1()">ホーム</a>
+                </li>
+                <li>
+                  <a onclick="changeBody2()">ペスト教</a>
+                </li>
+                <li>
+                  <a onclick="changeBody3()">ファイル</a>
+                </li>
+                <li class="is-active">
+                  <a onclick="changeBody4()">サイト</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">食堂ダッシュカウントダウン</h4>
+          <a href="https://pingu-pest.github.io/HP-countdown/" class="button is-warning">サイトへ移動する</a>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">ワンクリック詐欺サイト</h4>
+          <a href="https://pingu-pest.github.io/HP-scam/" class="button is-warning">サイトへ移動する</a>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">偽ウイルスサイト</h4>
+          <a href="https://pingu-pest.github.io/HP-virus/" class="button is-warning">サイトへ移動する</a>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">時間割確認サイト</h4>
+          <button class="button is-warning" title="Disabled button" disabled>検討中…</button>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">自分が人間か確認するページ</h4>
+          <button class="button is-warning" title="Disabled button" disabled>検討中…</button>
+        </div>
+      </section>
+      <section class="hero">
+        <div class="hero-body">
+          <h4 class="subtitle is-4">新たな詐欺サイト(google)</h4>
+          <button class="button is-warning" title="Disabled button" disabled>検討中…</button>
+        </div>
+      </section>
+      `;
+    }
+  </script>
+</head>
+<body>
+  <!-- バーナー -->
+  <section class="hero is-info">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <style>
+                .super-large {
+                  font-size: 45px; /* サイズの指定 */
+                  font-weight: bold; /* 太字 */
+                }
+              </style>
+              <a  href="#" class="super-large has-text-white">PEST</a>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">ようこそ！ペストの世界へ</p>
+        <p class="subtitle">You are pest</p>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <nav class="tabs is-boxed is-fullwidth">
+        <div class="container">
+          <ul>
+            <li class="is-active">
+              <a onclick="changeBody1()">ホーム</a>
+            </li>
+            <li>
+              <a onclick="changeBody2()">ペスト教</a>
+            </li>
+            <li>
+              <a onclick="changeBody3()">ファイル</a>
+            </li>
+            <li>
+              <a onclick="changeBody4()">サイト</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="hero-body">
+      <h4 class="subtitle is-4">下のボタンをクリックして実装してほしい機能やサイトなどをどんどん入れてねー</h4>
+      <a href="https://forms.gle/FSjB9cExbmVUgUt58" class="button is-link">移動する</a>
+    </div>
+  </section>
+  <section class="hero">
+    <div class="hero-body">
+      <h4 class="subtitle is-4">12月の献立表と時刻表を載せました！</h4>
+      <h4 class="subtitle is-4">右上のボタンから見れるメニュー表などはその月のものであり、月が変わると自動的に変更されますのでご安心下さい。</h4>
+      <a class="button is-danger" onclick="changeBody3()">移動する</a>
+    </div>
+  </section>
+</body>
+</html>
