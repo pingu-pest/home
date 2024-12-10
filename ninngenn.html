@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人間判定</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <style>
+        .hero {
+            background-color: white; /* 初期背景色を白に設定 */
+            transition: background-color 0.5s ease, color 0.5s ease; /* 背景色と文字色の変更をスムーズに */
+        }
+        .message {
+            transition: color 0.5s ease; /* テキスト色の変更もスムーズに */
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-fullheight" id="mainHero">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="box">
+                    <h1 class="title has-text-black" id="titleText">自分はロボットではないかと不安な方へ</h1>
+                    <p class="subtitle has-text-grey" id="subtitleText">下のチェックボックスをクリックして確かめてみましょう。</p>
+                    <div class="g-recaptcha" id="recaptcha" data-sitekey="6LcjhY4qAAAAAOn0kgKKv52EMPbENZNYSQ9Zu4Vt" data-callback="onHumanVerified"></div>
+                    <p id="message" class="message is-size-5 mt-5"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 音声ファイル -->
+    <audio id="successSound" src="success.mp3"></audio> <!-- success.mp3 は任意の音声ファイル -->
+
+    <script>
+        // reCAPTCHA成功時に呼び出される関数
+        function onHumanVerified() {
+            // メッセージの更新
+            const messageElement = document.getElementById("message");
+            messageElement.textContent = "おめでとうございます。あなたは人間です";
+            messageElement.classList.remove("has-text-grey"); // 初期の文字色を削除
+            messageElement.classList.add("has-text-white"); // Bulmaの白色テキストクラス
+
+            // Heroセクションの背景色変更
+            const heroElement = document.getElementById("mainHero");
+            heroElement.classList.add("is-primary"); // 背景色を緑色に変更
+
+            // タイトルとサブタイトルの文字色変更
+            const titleText = document.getElementById("titleText");
+            const subtitleText = document.getElementById("subtitleText");
+            titleText.classList.remove("has-text-black");
+            titleText.classList.add("has-text-white");
+            subtitleText.classList.remove("has-text-grey");
+            subtitleText.classList.add("has-text-light");
+
+            // reCAPTCHAの削除
+            const recaptchaElement = document.getElementById("recaptcha");
+            recaptchaElement.remove(); // DOMから完全に削除
+
+            // 音声の再生
+            const successSound = document.getElementById("successSound");
+            successSound.play(); // 音声を再生
+        }
+    </script>
+</body>
+</html>
