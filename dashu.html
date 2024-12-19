@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>食堂ダッシュカウントダウン</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h3 class="subtitle is-3">食堂ダッシュスタートまで</h3>
+        <h1 id="countdown" class="subtitle is-1">あと--時間--分--秒</h1>
+        <div id="message" class="subtitle is-4"></div>
+      </div>
+    </div>
+  </section>
+  <script>
+  let holidays = []; // 祝日リストを保持する配列
+
+  // 外部APIから祝日データを取得
+  async function fetchHolidays() {
+    try {
+      const response = await fetch("https://holidays-jp.github.io/api/v1/date.json");
+      const data = await response.json();
+      holidays = Object.keys(data); // 祝日のYYYY-MM-DD形式の日付リストを取得
+      updateCountdown();
+      setInterval(updateCountdown, 1000); // 1秒ごとに更新
+    } catch (error) {
+      console.error("祝日データの取得に失敗しました:", error);
+      document.getElementById("message").textContent = "祝日データの取得に失敗しました。";
+    }
+  }
+
+  function isHoliday(date) {
+    const formattedDate = date.toISOString().split("T")[0];
+    return holidays.includes(formattedDate);
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const target = new Date();
+    const dayOfWeek = now.getDay(); // 曜日を取得 (0: 日曜日, 6: 土曜日)
+
+    // 土日と祝日を除外
+    if (dayOfWeek === 0 || dayOfWeek === 6 || isHoliday(now)) {
+      document.getElementById("message").textContent = "今日は土日または祝日です。カウントダウンはありません。";
+      document.getElementById("countdown").textContent = "あと--時間--分--秒";
+      return;
+    } else {
+      document.getElementById("message").textContent = "";
+    }
+
+    target.setHours(12, 15, 0, 0); // 12時15分を設定
+
+    if (now > target) {
+      // 現在時刻が12時15分を過ぎている場合、翌日の12時15分をターゲットに
+      target.setDate(target.getDate() + 1);
+
+      // 翌日が土日または祝日ならスキップ
+      while (target.getDay() === 0 || target.getDay() === 6 || isHoliday(target)) {
+        target.setDate(target.getDate() + 1);
+      }
+    }
+
+    const diff = target - now; // 時間差（ミリ秒）
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // フォーマットされた時間を表示
+    document.getElementById("countdown").textContent =
+    `あと${String(hours).padStart(2, '0')}時間${String(minutes).padStart(2, '0')}分${String(seconds).padStart(2, '0')}秒`;
+  }
+
+  // 初期化
+  fetchHolidays();
+  </script>
+</body>
+</html>
