@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="ようこそペスト教へ" content="ペスト教のホームページ", initial-scale=1.0">
-  <title>ピングーペスト教のホームページ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.2/css/bulma.min.css">
-  <style>
-    body {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .content-box {
-      text-align: center;
-      max-width: 600px;
-    }
-    .content-box h1 {
-      font-size: 6rem;
-    }
-    .content-box p {
-      font-size: 1.5rem;
-    }
-    .button {
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メンテナンス中</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        .maintenance-box {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .maintenance-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .maintenance-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ff6f61;
+        }
+        .button-custom {
+            margin-top: 1rem;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button-custom:hover {
+            background-color: #e45c50;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <div class="content-box">
-    <h1 class="title">404</h1>
-    <p class="subtitle">ページが見つかりませんでした。</p>
-    <p>探しているページは存在しないか、移動した可能性があります。</p>
-    <a href="https://pingu-pest.github.io/home/file/12月の献立表.pdf" class="button is-light is-outlined">メニュー表を見る</a>
-  </div>
+    <div class="maintenance-box">
+        <div class="maintenance-icon">🚧</div>
+        <h1 class="maintenance-title">現在メンテナンス中です</h1>
+        <p>サービスをご利用いただきありがとうございます。</p>
+        <p>ただいまメンテナンス作業を行っております。</p>
+        <p>再開までしばらくお待ちください。</p>
+        <br>
+        <a class="button-custom" href="https://pingu-pest.github.io/home/file/12月の献立表.pdf">献立表を見る</a>
+    </div>
 </body>
 </html>
